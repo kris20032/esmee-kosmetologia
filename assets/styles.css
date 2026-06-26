@@ -224,6 +224,13 @@ p{max-width:65ch}
 
 /* ---------- GALLERY (realizacje) ---------- */
 .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:var(--space-4);grid-auto-rows:200px}
+/* GALERIA MASONRY — pionowe zdjęcia (portrety beauty/wellness) bez przycinania: kolumny, height auto */
+.gallery-masonry{column-count:3;column-gap:var(--space-4)}
+@media(max-width:900px){.gallery-masonry{column-count:2}}
+@media(max-width:560px){.gallery-masonry{column-count:1}}
+.gallery-masonry .m-tile{break-inside:avoid;margin:0 0 var(--space-4);padding:0;position:relative;overflow:hidden;border-radius:var(--r-md);border:1px solid var(--line)}
+.gallery-masonry .m-tile img{width:100%;height:auto;display:block}
+.gallery-masonry .m-tile .cap{position:absolute;left:0;right:0;bottom:0;padding:var(--space-4);color:#fff;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);font-size:var(--text-sm)}
 .tile{position:relative;overflow:hidden;border-radius:var(--r-md);box-shadow:var(--sh-sm);
   transition:transform var(--dur) var(--ease),box-shadow var(--dur) var(--ease)}
 .tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
